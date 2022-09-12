@@ -3,7 +3,6 @@ from django.contrib.auth.models import User
 from rest_framework import serializers
 
 from .models import TableInfo
-from .utils import LenRowException
 
 
 class UserSerializer(serializers.ModelSerializer):
@@ -16,7 +15,6 @@ class TableSerializer(serializers.ModelSerializer):
     class Meta:
         model = TableInfo
         fields = ['values']
-        # fields = '__all__'
 
     def validate(self, attrs):
         for value in attrs['values']:
